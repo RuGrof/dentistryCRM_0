@@ -15,7 +15,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class ProfileViewComponent implements OnInit {
   dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
+  columnsToDisplay = ['Date', 'DoctorName', 'Money', 'Mark', 'Cabinete'];
   expandedElement: PeriodicElement | null = null;
   constructor() { }
 
@@ -25,91 +25,101 @@ export class ProfileViewComponent implements OnInit {
 }
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  Date: string;
+  DoctorName: string;
+  Cabinete: number;
+  Money: number;
+  Mark: string;
   description: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {
-    position: 1,
-    name: 'Hydrogen',
-    weight: 1.0079,
-    symbol: 'H',
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
+    Date: '19.01.2021',
+    Cabinete: 11,
+    DoctorName: 'Иванова',
+    Money: 10079,
+    Mark: 'A',
+    description: `1. Вызов пациента, посадка в кресло, надевание гигиенической салфетки.
+                  2. Подготовка рабочего места врача и помощника: подготовка документации, раскладка инструментария, надевание перчаток (или их обработка после предварительного приема), маски, очков, регулирование положения пациента в кресле.
+                  3. Выяснение жалоб (или пожеланий) больного. Сбор анамнеза.`
   }, {
-    position: 2,
-    name: 'Helium',
-    weight: 4.0026,
-    symbol: 'He',
-    description: `Helium is a chemical element with symbol He and atomic number 2. It is a
-        colorless, odorless, tasteless, non-toxic, inert, monatomic gas, the first in the noble gas
-        group in the periodic table. Its boiling point is the lowest among all the elements.`
+    Date: '19.01.2021',
+    Cabinete: 12,
+    DoctorName: 'Петрова',
+    Money: 40026,
+    Mark: 'B',
+    description: `4. Осмотр. Зондирование. Перкуссия. (По показаниям: элетроодонтометрия, определение гигиенических индексов, просмотр рентгенограммы).
+                  5. Постановка диагноза.
+                  6. Собеседование с пациентом по поводу возможностей оказания стоматологической помощи в конкретном случае.`
   }, {
-    position: 3,
-    name: 'Lithium',
-    weight: 6.941,
-    symbol: 'Li',
-    description: `Lithium is a chemical element with symbol Li and atomic number 3. It is a soft,
-        silvery-white alkali metal. Under standard conditions, it is the lightest metal and the
-        lightest solid element.`
+    Date: '19.01.2021',
+    Cabinete: 11,
+    DoctorName: 'Иванова',
+    Money: 6941,
+    Mark: 'B+',
+    description: `7. Дополнительная подготовка рабочего места с учетом поставленного диагноза (подбор необходимого инструментария, материалов, пр.).
+                  8. Проведение анестезии (по показаниям).
+                  9. Подготовка операционного поля, изоляции коффердамом, установка слюноотсоса, удаление зубного налета. Определение цвета поверхности зуба.`
   }, {
-    position: 4,
-    name: 'Beryllium',
-    weight: 9.0122,
-    symbol: 'Be',
-    description: `Beryllium is a chemical element with symbol Be and atomic number 4. It is a
-        relatively rare element in the universe, usually occurring as a product of the spallation of
-        larger atomic nuclei that have collided with cosmic rays.`
+    Date: '19.01.2021',
+    Cabinete: 4,
+    DoctorName: 'Иванова',
+    Money: 90122,
+    Mark: 'C-',
+    description: `10. Подготовка наконечников к работе, выбор боров, их фиксация в наконечнике (или указывается общее число использованных при приеме больного боров и других инструментов, фиксируемых в наконечнике).
+                  11. Препарирование полости. Контрольные осмотры обрабатываемой полости.`
   }, {
-    position: 5,
-    name: 'Boron',
-    weight: 10.811,
-    symbol: 'B',
-    description: `Boron is a chemical element with symbol B and atomic number 5. Produced entirely
-        by cosmic ray spallation and supernovae and not by stellar nucleosynthesis, it is a
-        low-abundance element in the Solar system and in the Earth's crust.`
+    Date: '19.01.2021',
+    Cabinete: 52,
+    DoctorName: 'Боров',
+    Money: 10811,
+    Mark: 'F',
+    description: `12. Промывка полости.
+                  13. Остановка кровотечения (по показаниям). Повторная промывка.
+                  14. Высушивание полости.`
   }, {
-    position: 6,
-    name: 'Carbon',
-    weight: 12.0107,
-    symbol: 'C',
-    description: `Carbon is a chemical element with symbol C and atomic number 6. It is nonmetallic
-        and tetravalent—making four electrons available to form covalent chemical bonds. It belongs
-        to group 14 of the periodic table.`
+    Date: '19.01.2021',
+    Cabinete: 64,
+    DoctorName: 'Карбон',
+    Money: 120107,
+    Mark: 'A',
+    description: `15. Кислотное протравливание. Повторная промывка полости от воздействия кислоты.
+                  16. Наложение лечебной и/или изолирующей прокладок (по показаниям).
+                  17. Наложение матрицы и/или клина (по показаниям).`
   }, {
-    position: 7,
-    name: 'Nitrogen',
-    weight: 14.0067,
-    symbol: 'N',
-    description: `Nitrogen is a chemical element with symbol N and atomic number 7. It was first
-        discovered and isolated by Scottish physician Daniel Rutherford in 1772.`
+    Date: '19.01.2021',
+    Cabinete: 27,
+    DoctorName: 'Иванова',
+    Money: 140067,
+    Mark: 'A+',
+    description: `18. Наложение пломбы с учетом требований инструкции по использованию конкретного пломбировочного материала (применение праймера, адгезива, повторное определение цвета, послойное наложение пломбировочного материала).
+                  19. Снятие коффердама.
+                  20. Проверка окклюзии и ее коррекция.`
   }, {
-    position: 8,
-    name: 'Oxygen',
-    weight: 15.9994,
-    symbol: 'O',
-    description: `Oxygen is a chemical element with symbol O and atomic number 8. It is a member of
-         the chalcogen group on the periodic table, a highly reactive nonmetal, and an oxidizing
-         agent that readily forms oxides with most elements as well as with other compounds.`
+    Date: '19.01.2021',
+    Cabinete: 81,
+    DoctorName: 'Пупышкин',
+    Money: 159994,
+    Mark: 'B',
+    description: `21. Смена шлифовальных и полировочных инструментов в наконечнике. Шлифовка и полировка пломбы.
+                  22. Окончательное отсвечивание фотополимеризатором всех поверхностей пломбы.
+                  23. Совет пациенту.`
   }, {
-    position: 9,
-    name: 'Fluorine',
-    weight: 18.9984,
-    symbol: 'F',
-    description: `Fluorine is a chemical element with symbol F and atomic number 9. It is the
-        lightest halogen and exists as a highly toxic pale yellow diatomic gas at standard
-        conditions.`
+    Date: '19.01.2021',
+    Cabinete: 49,
+    DoctorName: 'Флоурнв',
+    Money: 189984,
+    Mark: 'C',
+    description: `24. Заполнение документации.
+                  25. Свертывание рабочего места. Сбор использованного материала и инструментария для последующей обработки и стерилизации, обработка наконечников, смена слюноотсоса.
+                  26. Подготовка рабочего места в объеме адекватном общим требованиям к приему следующего пациента.`
   }, {
-    position: 10,
-    name: 'Neon',
-    weight: 20.1797,
-    symbol: 'Ne',
-    description: `Neon is a chemical element with symbol Ne and atomic number 10. It is a noble gas.
-        Neon is a colorless, odorless, inert monatomic gas under standard conditions, with about
-        two-thirds the density of air.`
+    Date: '19.01.2021',
+    Cabinete: 110,
+    DoctorName: 'Дадаева',
+    Money: 201797,
+    Mark: 'C',
+    description: `27. Получение денежек!`
   },
 ];
